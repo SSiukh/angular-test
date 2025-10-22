@@ -44,11 +44,6 @@ export class Subscribe {
     });
   }
 
-  @HostListener('window:resize')
-  onResize() {
-    this.width = screen.width;
-  }
-
   async onSubmit(modalContent: any) {
     this.submitted = true;
     this.isLoading = true;
