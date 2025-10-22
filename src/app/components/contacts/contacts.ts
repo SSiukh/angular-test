@@ -12,12 +12,14 @@ import { SvgIcon } from '../../shared/components/svg-icon/svg-icon';
 import { SocialNetworksData } from './interfaces/social-networks-data.interface';
 import { ContantBlockData } from '../../shared/interfaces/contact-block-data.interface';
 import { RevealOnScroll } from '../../shared/directives/reveal-on-scroll/reveal-on-scroll';
+import { ScreenService } from '../../core/services/screen/screen';
 
 @Component({
   selector: 'app-contacts',
   imports: [ContactBlock, NgStyle, SvgIcon, RevealOnScroll],
   templateUrl: './contacts.html',
   styleUrl: './contacts.css',
+  standalone: true,
 })
 export class Contacts implements OnInit {
   @ViewChild('email') hintTemplate!: TemplateRef<any> | null;
@@ -26,17 +28,13 @@ export class Contacts implements OnInit {
   width!: number;
   blocksData: ContantBlockData[] = [];
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(private cdr: ChangeDetectorRef, private screenService: ScreenService) {}
 
   ngOnInit() {
-    this.width = screen.width;
-    this.updateBlocksData();
-  }
-
-  @HostListener('window:resize')
-  onResize() {
-    this.width = screen.width;
-    this.updateBlocksData();
+    this.screenService.width$.subscribe((width) => {
+      this.width = width;
+      this.updateBlocksData();
+    });
   }
 
   updateBlocksData() {

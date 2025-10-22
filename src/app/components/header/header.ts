@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Button } from '../../shared/components/button/button';
 import { Logo } from '../../shared/components/logo/logo';
+import { ScreenService } from '../../core/services/screen/screen';
 
 @Component({
   selector: 'app-header',
@@ -12,12 +13,11 @@ import { Logo } from '../../shared/components/logo/logo';
 export class Header implements OnInit {
   width!: number;
 
-  ngOnInit() {
-    this.width = screen.width;
-  }
+  constructor(private screenService: ScreenService) {}
 
-  @HostListener('window:resize')
-  onResize() {
-    this.width = screen.width;
+  ngOnInit() {
+    this.screenService.width$.subscribe((width) => {
+      this.width = width;
+    });
   }
 }

@@ -8,6 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 import { SubscribeRequest, SubscribeResponse } from '../../shared/interfaces';
 import { IsUniqueEmail } from '../../shared/directives/is-unique-email/is-unique-email';
 import { Loader } from '../../shared/components/loader/loader';
+import { ScreenService } from '../../core/services/screen/screen';
 
 @Component({
   selector: 'app-subscribe',
@@ -21,7 +22,8 @@ export class Subscribe {
     private modalService: NgbModal,
     private httpService: HttpService,
     private toastr: ToastrService,
-    private isUniqueEmail: IsUniqueEmail
+    private isUniqueEmail: IsUniqueEmail,
+    private screenService: ScreenService
   ) {}
 
   submitted: boolean = false;
@@ -30,7 +32,9 @@ export class Subscribe {
   width!: number;
 
   ngOnInit() {
-    this.width = screen.width;
+    this.screenService.width$.subscribe((width) => {
+      this.width = width;
+    });
     this.subscribeForm = new FormGroup({
       email: new FormControl('', {
         validators: [Validators.required, Validators.email],

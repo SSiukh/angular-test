@@ -10,6 +10,7 @@ import { SvgIcon } from '../../shared/components/svg-icon/svg-icon';
 import { NgClass } from '@angular/common';
 import { EventService } from '../../core/services/event/event';
 import { Subscription } from 'rxjs';
+import { ScreenService } from '../../core/services/screen/screen';
 
 @Component({
   selector: 'app-presentation',
@@ -25,15 +26,12 @@ export class Presentation implements AfterViewChecked, OnInit {
   private subscription!: Subscription;
   width!: number;
 
-  constructor(private eventService: EventService) {}
+  constructor(private eventService: EventService, private screenService: ScreenService) {}
 
   ngOnInit() {
-    this.width = screen.width;
-  }
-
-  @HostListener('window:resize')
-  onResize() {
-    this.width = screen.width;
+    this.screenService.width$.subscribe((width) => {
+      this.width = width;
+    });
   }
 
   startVideo() {

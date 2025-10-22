@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { StageInputData } from '../../shared/interfaces';
 import { Stage } from '../../shared/components/stage/stage';
+import { ScreenService } from '../../core/services/screen/screen';
 
 @Component({
   selector: 'app-plan',
@@ -12,15 +13,13 @@ export class Plan implements OnInit {
   width!: number;
   data: StageInputData[] = [];
 
-  ngOnInit() {
-    this.width = screen.width;
-    this.generateData();
-  }
+  constructor(private screenService: ScreenService) {}
 
-  @HostListener('window:resize')
-  onResize() {
-    this.width = screen.width;
-    this.generateData();
+  ngOnInit() {
+    this.screenService.width$.subscribe((width) => {
+      this.width = width;
+      this.generateData();
+    });
   }
 
   private generateData() {
