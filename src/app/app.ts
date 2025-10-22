@@ -1,11 +1,17 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Header } from './components/header/header';
+import { Hero } from './components/hero/hero';
+import { Plan } from './components/plan/plan';
+import { Presentation } from './components/presentation/presentation';
+import { Contacts } from './components/contacts/contacts';
+import { Footer } from './components/footer/footer';
+import { Subscribe } from './components/subscribe/subscribe';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [Header, Hero, Plan, Presentation, Contacts, Footer, Subscribe],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App {
   protected readonly title = signal('landing-app');

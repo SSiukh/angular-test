@@ -1,0 +1,254 @@
+.subscribe {
+  background-color: var(--yellow-primary);
+}
+.subscribe-wrapper {
+  width: 100%;
+  padding: 54px 0 59px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 54px;
+  justify-content: space-between;
+}
+.text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.title {
+  font-weight: 400;
+  font-size: 26px;
+  letter-spacing: -0.52px;
+  line-height: normal;
+}
+.subtitle {
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: -0.28px;
+  line-height: 21px;
+}
+.form-block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+.email-input {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid var(--black);
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+  color: var(--black);
+  padding-bottom: 6px;
+  font-family: 'e-Ukraine';
+}
+.email-input::placeholder {
+  color: var(--black);
+  opacity: 0.5;
+  font-family: 'e-Ukraine';
+}
+.sample {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 15px;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+}
+.modal {
+  width: 288px;
+  background-color: var(--white);
+  padding: 40px 21px 40px 18px;
+  position: relative;
+}
+.modal-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.modal-title {
+  line-height: 26px;
+  letter-spacing: -0.52px;
+  font-size: 26px;
+  font-weight: 400;
+}
+.modal-close-btn {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 17px;
+  top: 17px;
+}
+.modal-text {
+  margin: 20px 0 20px 0;
+  font-size: 13px;
+  line-height: 16.9px;
+  letter-spacing: -0.26px;
+  font-weight: 400;
+}
+.error {
+  color: red;
+  font-size: 10px;
+  margin-top: -20px;
+}
+
+@media only screen and (min-width: 520px) {
+  .modal {
+    width: 440px;
+    padding: 46px 23px 46px 23px;
+  }
+  .modal-text {
+    margin: 43px 0 60px 0;
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: -0.4px;
+  }
+  .modal-title {
+    line-height: 32px;
+    letter-spacing: -1.12px;
+    font-size: 32px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .subscribe-wrapper {
+    padding: 114px 0 153px 0;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0;
+  }
+  .text-block {
+    gap: 24px;
+  }
+  .title {
+    font-size: 32px;
+    letter-spacing: -1.12px;
+  }
+  .subtitle {
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 27px;
+  }
+  .form-block {
+    gap: 21px;
+  }
+  .form {
+    gap: 27px;
+  }
+  .modal {
+    width: 664px;
+    padding: 52px 53px 72px 64px;
+  }
+  .modal-title {
+    line-height: 56px;
+    letter-spacing: -1.12px;
+    font-size: 56px;
+  }
+  .modal-close-btn {
+    border-radius: 50%;
+    width: 59px;
+    height: 59px;
+    right: 42px;
+    top: 42px;
+    transition: background-color 0.3s ease;
+  }
+  .error {
+    font-size: 12px;
+    margin-top: -20px;
+  }
+}
+
+@media only screen and (min-width: 950px) {
+  .subscribe-wrapper {
+    padding: 114px 38.5px 153px 24px;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0;
+  }
+  .text-block {
+    gap: 24px;
+  }
+  .title {
+    font-size: 56px;
+    letter-spacing: -1.12px;
+    line-height: 67.2px;
+  }
+  .subtitle {
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 27px;
+  }
+  .form-block {
+    gap: 21px;
+  }
+  .form {
+    gap: 27px;
+  }
+  .email-input {
+    font-size: 18px;
+    margin-top: 4px;
+  }
+  .sample {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .modal {
+    width: 664px;
+    padding: 52px 53px 72px 64px;
+  }
+  .modal-title {
+    line-height: 56px;
+    letter-spacing: -1.12px;
+    font-size: 56px;
+  }
+  .modal-close-btn {
+    border-radius: 50%;
+    width: 59px;
+    height: 59px;
+    right: 42px;
+    top: 42px;
+    transition: background-color 0.3s ease;
+  }
+  .modal-text {
+    margin: 43px 0 60px 0;
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: -0.4px;
+  }
+  .error {
+    font-size: 12px;
+    margin-top: -20px;
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  .subscribe-wrapper {
+    padding: 114px 154px 153px 96px;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .modal-close-btn:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+  }
+}

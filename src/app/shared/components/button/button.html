@@ -1,0 +1,14 @@
+<button
+  [ngStyle]="{
+    'background-color': variant === 'primary' ? '#000000' : 'transparent',
+  }"
+  [style.width.px]="width"
+  [style.height.px]="height"
+  [ngClass]="buttonClasses"
+  [disabled]="isDisabled"
+>
+  @if (icon) {
+  <app-svg-icon [icon]="icon" [svgWidth]="iconWidth" [svgHeight]="iconHeight"></app-svg-icon>
+  }
+  {{ text }}
+</button>

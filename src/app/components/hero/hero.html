@@ -1,0 +1,14 @@
+<section class="hero">
+  <h1 class="title">Реформування системи містобудування</h1>
+  <app-button
+    [text]="'Відеотрансляція'"
+    [variant]="'primary'"
+    [icon]="'play'"
+    [iconHeight]="width <= 520 ? 15 : 18"
+    [iconWidth]="width <= 520 ? 15 : 18"
+    [width]="width <= 520 ? 211 : 241"
+    [height]="width <= 520 ? 48 : 56"
+    class="button"
+    (click)="handlePresentationClick()"
+  ></app-button>
+</section>

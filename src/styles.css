@@ -1,1 +1,112 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'ngx-toastr/toastr';
+
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --yellow-primary: #ffcd4e;
+  --yellow-secondary: #fffaf4;
+  --gray: #f4f4f4;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'e-Ukraine', Helvetica;
+  margin: 0;
+  background-color: var(--white);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+svg {
+  display: block;
+}
+
+.container {
+  max-width: 1440px;
+  min-width: 320px;
+  padding: 0 16px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 520px) {
+  .container {
+    padding: 0 40px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    padding: 0 80px;
+  }
+}
+
+@media only screen and (min-width: 1100px) {
+  .container {
+    padding: 0 160px;
+  }
+}
+
+@font-face {
+  font-family: 'e-Ukraine';
+  src: url('assets/fonts/e-Ukraine-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'e-Ukraine';
+  src: url('assets/fonts/e-Ukraine-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'e-Ukraine Head';
+  src: url('assets/fonts/e-UkraineHead-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px transparent;
+  -webkit-text-fill-color: black;
+  transition: background-color 5000s ease-in-out 0s;
+}

@@ -1,0 +1,22 @@
+<section #presentationSection [ngClass]="{ presentation: true, 'presentation-played': isPlaying }">
+  @if(isPlaying) {
+  <video #video controls class="presentation-video" (ended)="onVideoEnded()">
+    <source src="/assets/videos/presentation-video.mp4" type="video/mp4" />
+    Ваш браузер не підтримує відео.
+  </video>
+  } @else {
+  <div class="container">
+    <div class="text-info">
+      <h2 class="title">Презентація наживо</h2>
+      <p class="date">11 березня, о 12:00</p>
+    </div>
+  </div>
+  <button (click)="startVideo()" class="play-button">
+    <app-svg-icon
+      icon="play-button"
+      [svgWidth]="width < 520 ? 48 : width < 768 ? 77.1 : width < 1100 ? 92.56 : 116"
+      [svgHeight]="width < 520 ? 49.2 : width < 768 ? 79.73 : width < 1100 ? 96 : 120.58"
+    ></app-svg-icon>
+  </button>
+  }
+</section>

@@ -1,0 +1,21 @@
+<header class="header">
+  <div class="container">
+    <div class="wrapper">
+      <app-logo
+        [isMobile]="width <= 520"
+        color="black"
+        [marginTop]="width <= 520 ? '28px' : '44px'"
+      ></app-logo>
+      <app-button
+        [text]="'Презентація'"
+        [variant]="'outlined'"
+        [icon]="'download'"
+        [iconHeight]="width <= 520 ? 15 : 23"
+        [iconWidth]="width <= 520 ? 11 : 16.25"
+        [extraClass]="'download-button'"
+        [width]="width <= 520 ? 160 : 203.25"
+        [height]="width <= 520 ? 32 : 56"
+      ></app-button>
+    </div>
+  </div>
+</header>

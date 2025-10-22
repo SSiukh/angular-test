@@ -1,0 +1,48 @@
+<section class="contacts">
+  <div class="container">
+    <ul class="list">
+      @for(contact of blocksData; track $index; let i = $index) {
+      <li
+        class="contact-block-item"
+        appRevealOnScroll
+        [name]="'contact'"
+        [threshold]="0.5"
+        [delayTime]="0.3"
+        [index]="i"
+        [itemsPerRow]="1"
+      >
+        <app-contact-block [data]="contact">{{ contact.template }}</app-contact-block>
+      </li>
+      }
+    </ul>
+
+    <ng-template #email>
+      <a href="mailto:hello@thedigital.gov.ua" class="link">hello@thedigital.gov.ua</a>
+    </ng-template>
+
+    <ng-template #chat>
+      <ul class="social-list">
+        @for(item of socialNetworks; track $index){
+        <li>
+          <a
+            [href]="item.link"
+            target="_blank"
+            class="social-link"
+            [ngStyle]="{ color: item.color }"
+          >
+            <app-svg-icon
+              [icon]="item.name"
+              [svgWidth]="item.iconWidth"
+              [svgHeight]="item.iconHeight"
+            ></app-svg-icon>
+          </a>
+        </li>
+        }
+      </ul>
+    </ng-template>
+
+    <ng-template #phone>
+      <a href="tel:+380971628529" class="link">+38 097 162 85 29</a>
+    </ng-template>
+  </div>
+</section>

@@ -1,0 +1,35 @@
+<footer class="footer">
+  <div class="container">
+    <div class="main">
+      <app-logo color="white" marginTop="0px"></app-logo>
+      <div class="contact-block">
+        <ul class="messengers">
+          @for(messenger of messengers; track $index){
+          <li>
+            <a [href]="messenger.link" target="_blank" class="messenger-link">
+              <app-svg-icon
+                [svgHeight]="36"
+                [svgWidth]="36"
+                [icon]="'circled-' + messenger.name"
+                class="messenger-link-icon"
+              ></app-svg-icon>
+            </a>
+          </li>
+          }
+        </ul>
+        <ul class="emails">
+          <li class="email-item">
+            <a class="email-link" href="mailto:pr@thedigital.gov.ua">pr@thedigital.gov.ua</a>
+          </li>
+          <li class="email-item">
+            <a class="email-link" href="mailto:hello@thedigital.gov.ua">hello@thedigital.gov.ua</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <p class="additional-text">
+      © 2020 Весь контент доступний за ліцензією<br />
+      Creative Commons Attribution 4.0 International license, якщо не зазначено інше
+    </p>
+  </div>
+</footer>
