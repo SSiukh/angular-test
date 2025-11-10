@@ -1,0 +1,120 @@
+.presentation {
+  position: relative;
+  width: 100%;
+  height: auto;
+  background-image: image-set(
+    url('/assets/images/presentation-background-mobile-1x.png') 1x,
+    url('/assets/images/presentation-background-mobile-2x.png') 2x
+  );
+  background-size: cover;
+  background-position: center;
+  aspect-ratio: 320 / 180;
+  position: relative;
+}
+.text-info {
+  padding-top: 16px;
+}
+.title {
+  font-size: 20px;
+  letter-spacing: -0.4px;
+  color: var(--white);
+  font-weight: 400;
+  margin-bottom: 2px;
+  line-height: normal;
+}
+.date {
+  color: var(--white);
+  font-weight: 400;
+  letter-spacing: 0;
+  font-size: 10px;
+  line-height: normal;
+  opacity: 0.8;
+}
+.play-button {
+  color: var(--white);
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  margin: auto;
+  top: calc(50% - 24.6px);
+  left: calc(50% - 30px);
+  transition: transform 0.3s ease;
+}
+.presentation-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: auto;
+  transform: translateX(-50%);
+  left: 50%;
+}
+
+@media only screen and (min-width: 520px) {
+  .text-info {
+    padding-top: 20px;
+  }
+  .title {
+    font-size: 26px;
+    margin-bottom: 5px;
+  }
+  .date {
+    font-size: 13px;
+  }
+  .play-button {
+    top: calc(50% - 40px);
+    left: calc(50% - 38.55px);
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .presentation {
+    background-image: image-set(
+      url('/assets/images/presentation-background-desktop-1x.png') 1x,
+      url('/assets/images/presentation-background-desktop-2x.png') 2x
+    );
+    aspect-ratio: 19.3 / 9;
+  }
+  .text-info {
+    padding-top: 40px;
+  }
+  .title {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+  .date {
+    font-size: 16px;
+  }
+  .play-button {
+    top: calc(50% - 48px);
+    left: calc(50% - 46.28px);
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .text-info {
+    margin-left: -5px;
+    padding-top: 86px;
+  }
+  .title {
+    letter-spacing: 0;
+    font-size: 56px;
+    margin-bottom: 30px;
+  }
+  .date {
+    font-size: 24px;
+  }
+  .play-button {
+    top: calc(50% - 60.29px);
+    left: calc(50% - 58px);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .play-button:hover {
+    transform: scale(1.05);
+  }
+}
+.presentation-played {
+  background: #000000;
+}
