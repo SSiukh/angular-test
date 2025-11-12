@@ -1,0 +1,17 @@
+@use 'mixins' as *;
+@use 'vars' as *;
+
+.link {
+  color: $color-white;
+  display: block;
+
+  @include respond-to(md) {
+    transition: transform 0.3s ease;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

@@ -1,0 +1,16 @@
+<div
+  class="item"
+  appRevealOnScroll
+  [name]="'item'"
+  [delayTime]="0.3"
+  [index]="id - 1"
+  [itemsPerRow]="3"
+>
+  <span class="item__number">{{ id < 10 ? `0${id}` : id }}</span>
+  <h3 class="item__title">{{ data.title }}</h3>
+  <ul class="item__list">
+    @for(item of data.content; track $index) {
+    <li class="item__content" [innerHTML]="item"></li>
+    }
+  </ul>
+</div>

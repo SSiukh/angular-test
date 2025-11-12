@@ -1,0 +1,70 @@
+<section class="subscription">
+  <app-loader [isLoading]="isLoading" background="#ffcd4e" />
+  <div class="container">
+    <div class="subscription__wrapper">
+      <div class="subscription__info">
+        <h2 class="subscription__title">
+          Щотижневі <br />
+          новини
+        </h2>
+        <p class="subscription__subtitle">Підпишіться, щоб отримувати листи</p>
+      </div>
+      <div class="subscription__form-block">
+        <app-subscription-form
+          (loadingChange)="onLoadingChange($event)"
+          [modalContent]="modalContent"
+        />
+        <p class="subscription__sample">
+          Даю згоду на обробку та @if(width > 768) {
+          <br />
+          } використання персональних даних
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #modalContent let-modal>
+    <div
+      (click)="modal.dismiss()"
+      class="subscription__overlay"
+      tabindex="0"
+      (keyup.enter)="modal.dismiss()"
+      (keyup.space)="modal.dismiss()"
+    >
+      <div
+        class="subscription__modal"
+        (click)="$event.stopPropagation()"
+        tabindex="0"
+        (keyup.enter)="$event.stopPropagation()"
+        (keyup.space)="$event.stopPropagation()"
+      >
+        <div class="subscription__modal-header">
+          <h4 class="subscription__modal-title">Дякуємо</h4>
+          <button
+            class="subscription__modal-close-btn"
+            type="button"
+            aria-label="Close"
+            (click)="modal.dismiss()"
+          >
+            <app-svg-icon
+              icon="close-button"
+              [svgWidth]="width < 768 ? 16 : 37.59"
+              [svgHeight]="width < 768 ? 16 : 36"
+            ></app-svg-icon>
+          </button>
+        </div>
+        <p class="subscription__modal-text">
+          Ми відправили лист на вашу пошту. @if(width > 768) {
+          <br />
+          } Будь ласка, підтвердіть підписку.
+        </p>
+        <app-button
+          text="ОК"
+          [width]="width < 520 ? 184 : 192"
+          [height]="width < 520 ? 48 : 64"
+          (click)="modal.close()"
+        ></app-button>
+      </div>
+    </div>
+  </ng-template>
+</section>

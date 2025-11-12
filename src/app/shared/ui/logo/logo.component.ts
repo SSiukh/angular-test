@@ -6,11 +6,11 @@ import { NgStyle, NgClass } from '@angular/common';
   selector: 'app-logo',
   imports: [SvgIconComponent, NgStyle, NgClass],
   templateUrl: './logo.component.html',
-  styleUrl: './logo.component.css',
+  styleUrl: './logo.component.scss',
   standalone: true,
 })
 export class LogoComponent {
   @Input() marginTop?: string;
-  @Input() color: string = '#000000';
-  @Input() isMobile: boolean = false;
+  @Input() color = '#000000';
+  @Input() isMobile = false;
 }

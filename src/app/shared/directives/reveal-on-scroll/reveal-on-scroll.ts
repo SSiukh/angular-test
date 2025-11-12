@@ -1,4 +1,12 @@
-import { Directive, ElementRef, HostBinding, Input, OnDestroy, OnInit } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  HostBinding,
+  inject,
+  Input,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 
 @Directive({
   selector: '[appRevealOnScroll]',
@@ -7,13 +15,13 @@ import { Directive, ElementRef, HostBinding, Input, OnDestroy, OnInit } from '@a
 export class RevealOnScroll implements OnInit, OnDestroy {
   @Input() name?: string = '';
   @Input() threshold?: number = 0.3;
-  @Input() delayTime: number = 0;
-  @Input() index: number = 0;
-  @Input() itemsPerRow: number = 1;
-  private _isVisible: boolean = false;
+  @Input() delayTime = 0;
+  @Input() index = 0;
+  @Input() itemsPerRow = 1;
+  private _isVisible = false;
 
   @HostBinding('class') get hostClasses(): string {
-    return this._isVisible ? `active-${this.name ?? ''}` : '';
+    return this._isVisible ? `${this.name ?? ''}--active` : '';
   }
 
   @HostBinding('style.animationDelay') get delay() {
@@ -24,8 +32,7 @@ export class RevealOnScroll implements OnInit, OnDestroy {
   }
 
   private observer!: IntersectionObserver;
-
-  constructor(private el: ElementRef) {}
+  private el = inject(ElementRef);
 
   ngOnInit(): void {
     this.observer = new IntersectionObserver(

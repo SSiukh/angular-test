@@ -1,27 +1,36 @@
-import { ChangeDetectorRef, Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { NgStyle } from '@angular/common';
-import { SvgIconComponent } from 'app/shared/ui/svg-icon/svg-icon.component';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  inject,
+  OnInit,
+  TemplateRef,
+  ViewChild,
+} from '@angular/core';
 import { SocialNetworksData } from './types/social-networks-data.interface';
 import { ContantBlockData } from './types/contact-block-data.interface';
-import { RevealOnScroll } from 'app/shared/directives/reveal-on-scroll/reveal-on-scroll';
 import { ScreenService } from 'app/core/services/screen/screen.service';
-import { ContactBlockComponent } from './components/contact-block/contact-block.component';
+import { ContactListComponent } from './components/contact-list/contact-list.component';
+import { SocialListComponent } from './components/social-list/social-list.component';
+import { SOCIAL_NETWORKS } from './datasets/social-networks.constant';
 
 @Component({
   selector: 'app-contacts',
-  imports: [ContactBlockComponent, NgStyle, SvgIconComponent, RevealOnScroll],
+  imports: [ContactListComponent, SocialListComponent],
   templateUrl: './contacts.component.html',
-  styleUrl: './contacts.component.css',
+  styleUrl: './contacts.component.scss',
   standalone: true,
 })
-export class ContactsComponent implements OnInit {
-  @ViewChild('email') hintTemplate!: TemplateRef<any> | null;
-  @ViewChild('chat') chatTemplate!: TemplateRef<any> | null;
-  @ViewChild('phone') phoneTemplate!: TemplateRef<any> | null;
+export class ContactsComponent implements OnInit, AfterViewInit {
+  @ViewChild('email') hintTemplate!: TemplateRef<unknown> | null;
+  @ViewChild('chat') chatTemplate!: TemplateRef<unknown> | null;
+  @ViewChild('phone') phoneTemplate!: TemplateRef<unknown> | null;
+
+  private cdr = inject(ChangeDetectorRef);
+  private screenService = inject(ScreenService);
+
   width!: number;
   blocksData: ContantBlockData[] = [];
-
-  constructor(private cdr: ChangeDetectorRef, private screenService: ScreenService) {}
 
   ngOnInit() {
     this.screenService.width$.subscribe((width) => {
@@ -54,22 +63,7 @@ export class ContactsComponent implements OnInit {
     ];
   }
 
-  socialNetworks: SocialNetworksData[] = [
-    { name: 'viber', iconWidth: 35.1, iconHeight: 35.97, link: 'https://vb.me/diia' },
-    {
-      name: 'telegram',
-      color: '#34ACE0',
-      iconWidth: 35.94,
-      iconHeight: 29.79,
-      link: 'https://t.me/mintsyfra',
-    },
-    {
-      name: 'facebook-logo',
-      iconWidth: 33,
-      iconHeight: 33,
-      link: 'href="https://www.facebook.com/mintsyfra/"',
-    },
-  ];
+  socialNetworks: SocialNetworksData[] = SOCIAL_NETWORKS;
 
   ngAfterViewInit() {
     this.blocksData[0].template = this.hintTemplate;

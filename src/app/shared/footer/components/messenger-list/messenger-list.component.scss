@@ -1,0 +1,10 @@
+@use 'mixins' as *;
+
+.list {
+  display: flex;
+  gap: 14px;
+
+  @include respond-to(md) {
+    gap: 12px;
+  }
+}

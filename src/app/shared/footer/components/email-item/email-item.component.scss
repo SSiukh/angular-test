@@ -1,0 +1,23 @@
+@use 'vars' as *;
+
+.link {
+  text-decoration: underline;
+  font-size: $font-size-base;
+  letter-spacing: 0;
+  line-height: 21px;
+  background: linear-gradient(0deg, $color-white, $color-white);
+  background-clip: text;
+  color: $color-white;
+  transition: background 0.3s ease, color 0.3s ease;
+  font-weight: 400;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background: linear-gradient(217deg, rgb(0, 255, 149), rgba(255, 255, 255, 0.7) 70.71%),
+        linear-gradient(127deg, rgb(0, 208, 255), rgba(255, 255, 255, 0.7) 70.71%),
+        linear-gradient(336deg, rgba(0, 255, 0, 1), rgba(255, 255, 255, 0.7) 70.71%);
+      background-clip: text;
+      color: transparent;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+@use 'mixins' as *;
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  align-items: flex-start;
+
+  @include respond-to(md) {
+    gap: 6px;
+    align-items: flex-end;
+  }
+}

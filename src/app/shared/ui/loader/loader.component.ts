@@ -6,9 +6,9 @@ import { NgClass } from '@angular/common';
   selector: 'app-loader',
   imports: [SvgIconComponent, NgClass],
   templateUrl: './loader.component.html',
-  styleUrl: './loader.component.css',
+  styleUrl: './loader.component.scss',
 })
 export class LoaderComponent {
-  @Input() isLoading: boolean = false;
-  @Input() background: string = '#fff';
+  @Input() isLoading = false;
+  @Input() background = '#fff';
 }

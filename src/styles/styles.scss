@@ -1,0 +1,25 @@
+@use 'vars' as *;
+@use 'reset' as *;
+@use 'fonts' as *;
+@use 'mixins' as *;
+@use 'ngx-toastr/toastr' as *;
+
+.container {
+  max-width: 1440px;
+  min-width: 320px;
+  padding: 0 16px;
+  width: 100%;
+  margin: 0 auto;
+
+  @include respond-to(sm) {
+    padding: 0 40px;
+  }
+
+  @include respond-to(md) {
+    padding: 0 80px;
+  }
+
+  @include respond-to(xl) {
+    padding: 0 160px;
+  }
+}

@@ -4,5 +4,5 @@ export interface ContantBlockData {
   emoji: string;
   title: string;
   hint: string;
-  template: TemplateRef<any> | null;
+  template: TemplateRef<unknown> | null;
 }

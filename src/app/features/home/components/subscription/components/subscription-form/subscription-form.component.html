@@ -1,0 +1,22 @@
+<form class="form" [formGroup]="subscribeForm" (ngSubmit)="onSubmit()">
+  <input
+    class="form__input"
+    id="email"
+    type="email"
+    placeholder="Ваш email"
+    formControlName="email"
+  />
+  @if(email?.errors?.['required'] && submitted) {
+  <p class="form__error">Поле не може бути порожнім</p>
+  } @if(email?.errors?.['email'] && email?.touched) {
+  <p class="form__error">Неправильний формат електронної пошти</p>
+  } @if(email?.hasError('notUnique') && email?.touched) {
+  <p class="form__error">Ця адреса вже використовується</p>
+  }
+  <app-button
+    [isDisabled]="isLoading"
+    text="Підписатись"
+    [width]="width < 520 ? 184 : 294"
+    [height]="width < 520 ? 48 : 64"
+  />
+</form>

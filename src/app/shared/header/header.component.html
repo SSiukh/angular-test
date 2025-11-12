@@ -1,6 +1,6 @@
 <header class="header">
   <div class="container">
-    <div class="wrapper">
+    <div class="header__wrapper">
       <app-logo
         [isMobile]="width <= 520"
         color="black"
@@ -12,7 +12,7 @@
         [icon]="'download'"
         [iconHeight]="width <= 520 ? 15 : 23"
         [iconWidth]="width <= 520 ? 11 : 16.25"
-        [extraClass]="'download-button'"
+        [extraClass]="'header__download-button'"
         [width]="width <= 520 ? 160 : 203.25"
         [height]="width <= 520 ? 32 : 56"
       ></app-button>

@@ -7,6 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class SvgIconComponent {
   @Input() icon!: string;
-  @Input() svgWidth: number = 24;
-  @Input() svgHeight: number = 24;
+  @Input() svgWidth = 24;
+  @Input() svgHeight = 24;
 }

@@ -1,0 +1,14 @@
+@use 'mixins' as *;
+@use 'vars' as *;
+
+.contact {
+  opacity: 0;
+
+  &:not(:last-child) {
+    border-bottom: 2px solid $color-black;
+  }
+
+  &--active {
+    @include fade-in-animation(0.5s, left);
+  }
+}

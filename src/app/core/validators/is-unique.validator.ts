@@ -4,9 +4,9 @@ import { map, catchError } from 'rxjs/operators';
 import { UniqueCheckConfig } from './types';
 import { HttpService } from 'app/features/services/http/http.service';
 
-export function uniqueValidator<TReq, TRes>(
+export function uniqueValidator<TReq, TRes, TValue>(
   http: HttpService,
-  config: UniqueCheckConfig<TReq, TRes>
+  config: UniqueCheckConfig<TReq, TRes, TValue>
 ): AsyncValidatorFn {
   return (control: AbstractControl): Observable<ValidationErrors | null> => {
     if (!control.value) {

@@ -1,0 +1,78 @@
+@use 'vars' as *;
+@use 'animations' as *;
+@use 'sass:map';
+
+@mixin respond-to($breakpoint) {
+  $size: map.get($breakpoints, $breakpoint);
+
+  @if $size {
+    @media only screen and (min-width: $size) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint `#{$breakpoint}`";
+  }
+}
+
+@mixin hover-scale($scale: 1.1, $duration: 0.3s) {
+  transition: transform $duration ease;
+
+  &:hover {
+    transform: scale($scale);
+  }
+}
+
+@mixin fade-in-animation($duration: 0.5s, $direction: null) {
+  opacity: 0;
+
+  @if $direction == left {
+    transform: translateX(-10%);
+    animation: fadeInLeft $duration ease forwards;
+  } @else if $direction == right {
+    transform: translateX(10%);
+    animation: fadeInRight $duration ease forwards;
+  } @else if $direction == top {
+    transform: translateY(-5%);
+    animation: fadeInTop $duration ease forwards;
+  } @else if $direction == bottom {
+    transform: translateY(5%);
+    animation: fadeInBottom $duration ease forwards;
+  } @else {
+    animation: fadeIn $duration ease forwards;
+  }
+}
+
+@mixin hover-gradient-animation($duration: 10s) {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(217deg, rgba(255, 0, 0, 1), rgba(255, 0, 0, 0) 70.71%),
+      linear-gradient(127deg, rgba(0, 0, 255, 1), rgba(0, 0, 255, 0) 70.71%),
+      linear-gradient(336deg, rgba(0, 255, 0, 1), rgba(0, 255, 0, 0) 70.71%);
+    background-size: 200% 300%;
+    background-color: $color-white;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+  }
+
+  &:disabled::before {
+    opacity: 0;
+    animation: none;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover::before {
+      opacity: 1;
+      animation: granimate $duration ease infinite;
+    }
+  }
+}
+
+@mixin rotate-animation($duration) {
+  animation: rotate $duration linear infinite;
+}

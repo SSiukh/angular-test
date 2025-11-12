@@ -1,0 +1,22 @@
+@use 'mixins' as *;
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+  }
+
+  &__download-button {
+    margin-top: 25px;
+
+    @include respond-to(sm) {
+      margin-top: 49px;
+    }
+  }
+}

@@ -1,20 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { StageInputData } from './types';
 import { ScreenService } from 'app/core/services/screen/screen.service';
-import { StageComponent } from './components/stage/stage.component';
+import { PlanListComponent } from './components/plan-list/plan-list.component';
 
 @Component({
   selector: 'app-plan',
-  imports: [StageComponent],
+  imports: [PlanListComponent],
   templateUrl: './plan.component.html',
-  styleUrl: './plan.component.css',
   standalone: true,
 })
 export class PlanComponent implements OnInit {
+  private screenService = inject(ScreenService);
+
   width!: number;
   data: StageInputData[] = [];
-
-  constructor(private screenService: ScreenService) {}
 
   ngOnInit() {
     this.screenService.width$.subscribe((width) => {

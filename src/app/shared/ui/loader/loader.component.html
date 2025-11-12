@@ -1,13 +1,13 @@
-<div class="loader-container" [ngClass]="{ show: isLoading }">
-  <div class="box">
-    <div class="content" [style.background]="background">
+<div class="loader" [ngClass]="{ 'loader--show': isLoading }">
+  <div class="loader__container">
+    <div class="loader__content" [style.background]="background">
       <h1>
         <app-svg-icon [svgWidth]="58" [svgHeight]="95" icon="loader-gerb" />
       </h1>
     </div>
-    <div class="black-underlay">
-      <div class="rotator">
-        <div class="border"></div>
+    <div class="loader__black-underlay">
+      <div class="loader__rotator">
+        <div class="loader__border"></div>
       </div>
     </div>
   </div>

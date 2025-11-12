@@ -1,0 +1,50 @@
+@use 'mixins' as *;
+@use 'vars' as *;
+
+.hero {
+  background-image: image-set(
+    url('/assets/images/hero-background-mobile-1x.png') 1x,
+    url('/assets/images/hero-background-mobile-2x.png') 2x
+  );
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  padding: 200px 0 173px 0;
+
+  @include respond-to(md) {
+    background-image: image-set(
+      url('/assets/images/hero-background-desktop-1x.png') 1x,
+      url('/assets/images/hero-background-desktop-2x.png') 2x
+    );
+    gap: 50px;
+    padding: 304px 0 306px 0;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: 30px;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: -0.6px;
+    line-height: normal;
+    max-width: 288px;
+
+    @include respond-to(sm) {
+      font-size: 40px;
+      max-width: 400px;
+    }
+
+    @include respond-to(md) {
+      font-size: $font-size-xxl;
+      letter-spacing: 0;
+      max-width: 520px;
+    }
+
+    @include respond-to(xl) {
+      max-width: 769px;
+    }
+  }
+}

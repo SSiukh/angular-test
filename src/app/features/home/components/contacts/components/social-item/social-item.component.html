@@ -1,0 +1,13 @@
+<a
+  [href]="item.link"
+  target="_blank"
+  class="link"
+  rel="noopener noreferrer"
+  [ngStyle]="{ color: item.color }"
+>
+  <app-svg-icon
+    [icon]="item.name"
+    [svgWidth]="item.iconWidth"
+    [svgHeight]="item.iconHeight"
+  ></app-svg-icon>
+</a>

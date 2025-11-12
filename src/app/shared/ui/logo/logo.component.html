@@ -1,4 +1,4 @@
-<div class="logo-block" [ngStyle]="{color, 'margin-top': marginTop}">
+<div class="logo" [ngStyle]="{color, 'margin-top': marginTop}">
   <app-svg-icon
     [icon]="'gerb'"
     [svgWidth]="isMobile ? 13.75 : 24"
@@ -6,8 +6,8 @@
   ></app-svg-icon>
   <div
     [ngStyle]="{ 'background-color': color }"
-    class="vertical-line"
-    [ngClass]="{ mobile: isMobile }"
+    class="logo__vertical-line"
+    [ngClass]="{ 'logo__vertical-line--mobile': isMobile }"
   ></div>
-  <p class="logo-text" [ngClass]="{ mobile: isMobile }">Кабінет Міністрів України</p>
+  <p class="logo__text" [ngClass]="{ 'logo__text--mobile': isMobile }">Кабінет Міністрів України</p>
 </div>

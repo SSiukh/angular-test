@@ -1,4 +1,4 @@
-import { Injectable, NgZone } from '@angular/core';
+import { inject, Injectable, NgZone } from '@angular/core';
 import { BehaviorSubject, fromEvent, startWith } from 'rxjs';
 import { debounceTime, map } from 'rxjs/operators';
 
@@ -6,10 +6,11 @@ import { debounceTime, map } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ScreenService {
+  private ngZone = inject(NgZone);
   private widthSubject = new BehaviorSubject<number>(this.getWidthSafely());
   width$ = this.widthSubject.asObservable();
 
-  constructor(private ngZone: NgZone) {
+  constructor() {
     if (typeof window !== 'undefined') {
       this.ngZone.runOutsideAngular(() => {
         fromEvent(window, 'resize')

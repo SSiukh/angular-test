@@ -1,0 +1,133 @@
+@use 'vars' as *;
+@use 'mixins' as *;
+
+.presentation {
+  position: relative;
+  width: 100%;
+  height: auto;
+  background-image: image-set(
+    url('/assets/images/presentation-background-mobile-1x.png') 1x,
+    url('/assets/images/presentation-background-mobile-2x.png') 2x
+  );
+  background-size: cover;
+  background-position: center;
+  aspect-ratio: 320 / 180;
+  position: relative;
+
+  @include respond-to(md) {
+    background-image: image-set(
+      url('/assets/images/presentation-background-desktop-1x.png') 1x,
+      url('/assets/images/presentation-background-desktop-2x.png') 2x
+    );
+    aspect-ratio: 19.3 / 9;
+  }
+
+  &__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: auto;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+
+  &__info {
+    padding-top: 16px;
+
+    @include respond-to(sm) {
+      padding-top: 20px;
+    }
+
+    @include respond-to(md) {
+      padding-top: 40px;
+    }
+
+    @include respond-to(xxl) {
+      margin-left: -5px;
+      padding-top: 86px;
+    }
+  }
+
+  &__title {
+    font-size: 20px;
+    letter-spacing: -0.4px;
+    color: $color-white;
+    font-weight: 400;
+    margin-bottom: 2px;
+    line-height: normal;
+
+    @include respond-to(sm) {
+      font-size: 26px;
+      margin-bottom: 5px;
+    }
+
+    @include respond-to(md) {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    @include respond-to(xxl) {
+      letter-spacing: 0;
+      font-size: $font-size-xxl;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__date {
+    color: $color-white;
+    font-weight: 400;
+    letter-spacing: 0;
+    font-size: 10px;
+    line-height: normal;
+    opacity: 0.8;
+
+    @include respond-to(sm) {
+      font-size: 13px;
+    }
+
+    @include respond-to(md) {
+      font-size: 16px;
+    }
+
+    @include respond-to(xxl) {
+      font-size: 24px;
+    }
+  }
+
+  &__play-button {
+    color: $color-white;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    margin: auto;
+    top: calc(50% - 24.6px);
+    left: calc(50% - 30px);
+    transition: transform 0.3s ease;
+
+    @include respond-to(sm) {
+      top: calc(50% - 40px);
+      left: calc(50% - 38.55px);
+    }
+
+    @include respond-to(md) {
+      top: calc(50% - 48px);
+      left: calc(50% - 46.28px);
+    }
+
+    @include respond-to(xxl) {
+      top: calc(50% - 60.29px);
+      left: calc(50% - 58px);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &--played {
+    background: $color-black;
+  }
+}

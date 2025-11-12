@@ -1,0 +1,17 @@
+<ul>
+  @for(contact of blocksData; track $index; let i = $index; let last = $last) {
+  <li
+    class="contact"
+    appRevealOnScroll
+    [name]="'contact'"
+    [threshold]="0.5"
+    [delayTime]="0.3"
+    [index]="i"
+    [itemsPerRow]="1"
+    app-contact-item
+    [data]="contact"
+  >
+    {{ contact.template }}
+  </li>
+  }
+</ul>

@@ -1,0 +1,51 @@
+@use 'mixins' as *;
+@use 'vars' as *;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  position: relative;
+
+  @include respond-to(md) {
+    gap: 27px;
+  }
+
+  &__input {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid $color-black;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: normal;
+    color: $color-black;
+    padding-bottom: 6px;
+    font-family: $font-base;
+
+    &::placeholder {
+      color: $color-black;
+      opacity: 0.5;
+      font-family: $font-base;
+    }
+
+    @include respond-to(lg) {
+      font-size: 18px;
+      margin-top: 4px;
+    }
+  }
+
+  &__error {
+    color: red;
+    font-size: 8px;
+    position: absolute;
+    top: 38px;
+
+    @include fade-in-animation();
+
+    @include respond-to(md) {
+      font-size: 10px;
+    }
+  }
+}

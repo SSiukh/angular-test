@@ -1,0 +1,15 @@
+@use 'mixins' as *;
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  @include respond-to(md) {
+    gap: 22px;
+  }
+
+  @include respond-to(xxl) {
+    margin-top: 15px;
+  }
+}

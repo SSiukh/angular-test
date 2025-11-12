@@ -3,7 +3,7 @@ import { PlanComponent } from './components/plan/plan.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { PresentationComponent } from './components/presentation/presentation.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
-import { SubscribeComponent } from './components/subscribe/subscribe.component';
+import { SubscriptionComponent } from './components/subscription/subscription.component';
 
 @Component({
   selector: 'app-home',
@@ -12,10 +12,10 @@ import { SubscribeComponent } from './components/subscribe/subscribe.component';
     HeroComponent,
     PresentationComponent,
     ContactsComponent,
-    SubscribeComponent,
+    SubscriptionComponent,
   ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css',
+  styleUrl: './home.component.scss',
   standalone: true,
 })
 export class HomeComponent {}

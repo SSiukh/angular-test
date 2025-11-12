@@ -1,0 +1,187 @@
+@use 'mixins' as *;
+@use 'vars' as *;
+
+.subscription {
+  background-color: $color-yellow-primary;
+
+  &__wrapper {
+    width: 100%;
+    padding: 54px 0 59px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 54px;
+    justify-content: space-between;
+
+    @include respond-to(md) {
+      padding: 114px 0 153px 0;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 0;
+    }
+
+    @include respond-to(lg) {
+      padding: 114px 38.5px 153px 24px;
+    }
+
+    @include respond-to(huge) {
+      padding: 114px 154px 153px 96px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    @include respond-to(md) {
+      gap: 24px;
+    }
+  }
+
+  &__title {
+    font-weight: 400;
+    font-size: 26px;
+    letter-spacing: -0.52px;
+    line-height: normal;
+
+    @include respond-to(md) {
+      font-size: 32px;
+      letter-spacing: -1.12px;
+    }
+
+    @include respond-to(lg) {
+      font-size: $font-size-xxl;
+      letter-spacing: -1.12px;
+      line-height: 67.2px;
+    }
+  }
+  &__subtitle {
+    font-weight: 400;
+    font-size: $font-size-base;
+    letter-spacing: -0.28px;
+    line-height: 21px;
+
+    @include respond-to(md) {
+      font-size: $font-size-base;
+      letter-spacing: 0;
+      line-height: 27px;
+    }
+
+    @include respond-to(lg) {
+      font-size: $font-size-lg;
+    }
+  }
+
+  &__form-block {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @include respond-to(md) {
+      gap: 21px;
+    }
+  }
+
+  &__sample {
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 15px;
+
+    @include respond-to(lg) {
+      font-size: 12px;
+      line-height: 18px;
+    }
+  }
+
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050;
+  }
+  &__modal {
+    width: 288px;
+    background-color: $color-white;
+    padding: 40px 21px 40px 18px;
+    position: relative;
+
+    @include respond-to(sm) {
+      width: 440px;
+      padding: 46px 23px 46px 23px;
+    }
+
+    @include respond-to(md) {
+      width: 664px;
+      padding: 52px 53px 72px 64px;
+    }
+  }
+  &__modal-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__modal-title {
+    line-height: 26px;
+    letter-spacing: -0.52px;
+    font-size: 26px;
+    font-weight: 400;
+
+    @include respond-to(sm) {
+      line-height: 32px;
+      letter-spacing: -1.12px;
+      font-size: 32px;
+    }
+
+    @include respond-to(md) {
+      line-height: 56px;
+      letter-spacing: -1.12px;
+      font-size: 56px;
+    }
+  }
+  &__modal-close-btn {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 17px;
+    top: 17px;
+
+    @include respond-to(md) {
+      border-radius: 50%;
+      width: 59px;
+      height: 59px;
+      right: 42px;
+      top: 42px;
+      transition: background-color 0.3s ease;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.08);
+      }
+    }
+  }
+  &__modal-text {
+    margin: 20px 0 20px 0;
+    font-size: 13px;
+    line-height: 16.9px;
+    letter-spacing: -0.26px;
+    font-weight: 400;
+
+    @include respond-to(sm) {
+      margin: 43px 0 60px 0;
+      font-size: 20px;
+      line-height: 32px;
+      letter-spacing: -0.4px;
+    }
+  }
+}

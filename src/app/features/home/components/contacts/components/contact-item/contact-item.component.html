@@ -1,0 +1,26 @@
+<div class="contact">
+  <div class="contact__header">
+    <img
+      [ngClass]="{
+        contact__emoji: true,
+        'contact__emoji--mobile': data.title === 'Зателефонуйте<br>на гарячу лінію'
+      }"
+      [src]="`assets/images/${data.emoji}-emoji.png`"
+      [alt]="data.emoji"
+    />
+    <h3 class="contact__title" [innerHTML]="data.title"></h3>
+  </div>
+  <div class="contact__info">
+    <p
+      [ngClass]="{
+        'contact__hint-text': true,
+        'contact__hint-text--messengers': data.hint === 'Оберіть месенджер'
+      }"
+    >
+      {{ data.hint }}
+    </p>
+    @if(data.template){
+    <ng-container [ngTemplateOutlet]="data.template"></ng-container>
+    }
+  </div>
+</div>

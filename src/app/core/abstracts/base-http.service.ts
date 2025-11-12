@@ -1,13 +1,12 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { environment } from 'app/environments/environments';
 import { Observable } from 'rxjs';
 
 @Injectable()
 export abstract class BaseHttpService {
   protected baseUrl = environment.apiUrl;
-
-  constructor(protected http: HttpClient) {}
+  protected http = inject(HttpClient);
 
   protected get<TRes>(endpoint: string): Observable<TRes> {
     return this.http.get<TRes>(`${this.baseUrl}/${endpoint}`);

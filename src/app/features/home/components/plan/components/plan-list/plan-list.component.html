@@ -1,0 +1,5 @@
+<ul class="list">
+  @for(stage of data; track $index; let id = $index){
+  <li class="list__item" app-plan-item [id]="id + 1" [data]="stage"></li>
+  }
+</ul>

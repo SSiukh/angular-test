@@ -1,0 +1,55 @@
+@use 'mixins' as *;
+@use 'vars' as *;
+
+.item {
+  opacity: 0;
+  will-change: opacity, transform;
+
+  &--active {
+    @include fade-in-animation(0.5s, bottom);
+  }
+
+  &__number {
+    padding: 10px 23px;
+    background-color: $color-gray;
+    font-size: $font-size-base;
+    display: inline-flex;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    width: fit-content;
+  }
+
+  &__title {
+    font-size: $font-size-xl;
+    margin-bottom: 20px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+
+    @include respond-to(md) {
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+
+    @include respond-to(md) {
+      gap: 27px;
+    }
+  }
+
+  &__content {
+    font-size: $font-size-base;
+    line-height: normal;
+    letter-spacing: 0;
+
+    @include respond-to(md) {
+      font-size: $font-size-lg;
+      line-height: 27px;
+    }
+  }
+}

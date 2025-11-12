@@ -1,0 +1,49 @@
+@use 'vars' as *;
+@use 'mixins' as *;
+
+.footer {
+  background-color: $color-black;
+  padding: 64px 0px 26px 0px;
+
+  @include respond-to(md) {
+    padding: 50px 0px 37px 0px;
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 45px;
+
+    @include respond-to(md) {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 0;
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+
+    @include respond-to(md) {
+      gap: 14px;
+    }
+  }
+
+  &__additional-text {
+    color: $color-white;
+    font-size: 10px;
+    letter-spacing: 0;
+    line-height: 15px;
+    font-weight: 300;
+    opacity: 0.5;
+    margin-top: 26.42px;
+
+    @include respond-to(md) {
+      font-size: 12px;
+      line-height: 18px;
+      margin-top: 8px;
+    }
+  }
+}
