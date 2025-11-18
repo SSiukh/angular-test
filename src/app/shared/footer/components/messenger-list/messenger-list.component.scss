@@ -2,7 +2,12 @@
 
 .list {
   display: flex;
-  gap: 14px;
+  justify-content: space-between;
+
+  @include respond-to(320px) {
+    gap: 14px;
+    justify-content: flex-start;
+  }
 
   @include respond-to(md) {
     gap: 12px;

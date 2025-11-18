@@ -1,0 +1,35 @@
+<form class="toolbar" [formGroup]="toolbarForm">
+  <div class="toolbar__container">
+    <div class="toolbar__searchbox">
+      <input
+        type="text"
+        id="term"
+        placeholder="Назва новини"
+        formControlName="term"
+        class="toolbar__search"
+      />
+      <app-svg-icon class="toolbar__search-icon" icon="search" [svgWidth]="19" [svgHeight]="19" />
+    </div>
+
+    <ng-select
+      [items]="categories"
+      bindLabel="title"
+      bindValue="id"
+      placeholder="Оберіть категорію"
+      [searchable]="true"
+      formControlName="category"
+      class="toolbar__select"
+    />
+  </div>
+  <div class="toolbar__container">
+    <p>Кількість проєктів: {{ newsQuantity }}</p>
+    <ng-select
+      [items]="sortingData"
+      bindLabel="title"
+      bindValue="id"
+      formControlName="sort"
+      [clearable]="false"
+      class="toolbar__sort"
+    />
+  </div>
+</form>

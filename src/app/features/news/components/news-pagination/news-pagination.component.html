@@ -1,0 +1,32 @@
+<div class="pagination">
+  <button
+    class="pagination__btn"
+    [ngClass]="{ 'pagination__btn--disabled': currentPage === 1 }"
+    (click)="onPageChange('left')"
+  >
+    <app-svg-icon icon="arrow-left" [svgWidth]="8" [svgHeight]="13" />
+  </button>
+  <ul class="pagination__list">
+    @for(page of pagesToShow; track $index){
+    <li>
+      <button
+        class="pagination__number"
+        [ngClass]="{
+          'pagination__number--not-clickable': page === '...',
+          'pagination__number--active': currentPage === page
+        }"
+        (click)="onPageSelect(page)"
+      >
+        {{ page }}
+      </button>
+    </li>
+    }
+  </ul>
+  <button
+    class="pagination__btn"
+    [ngClass]="{ 'pagination__btn--disabled': currentPage === totalPages }"
+    (click)="onPageChange('right')"
+  >
+    <app-svg-icon icon="arrow-right" [svgWidth]="8" [svgHeight]="13" />
+  </button>
+</div>

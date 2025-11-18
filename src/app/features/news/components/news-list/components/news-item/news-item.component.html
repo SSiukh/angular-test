@@ -1,0 +1,13 @@
+<div class="news">
+  <img [src]="data.thumbnailUrl" [alt]="data.title" class="news__img" />
+  <div class="news__info">
+    <div class="news__text">
+      <h2 class="news__title">{{ data.title }}</h2>
+      <p class="news__description">{{ data.description }}</p>
+    </div>
+    <div class="news__additional-info">
+      <span class="news__additional">{{ data.category }}</span>
+      <span class="news__additional">{{ data.publishedAt | date : 'dd.MM.yyyy' }}</span>
+    </div>
+  </div>
+</div>

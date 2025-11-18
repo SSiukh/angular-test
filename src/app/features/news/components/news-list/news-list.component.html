@@ -1,0 +1,5 @@
+<ul class="news">
+  @for(item of news; track item.id ){
+  <li class="news__item" app-news-item [data]="item"></li>
+  }
+</ul>

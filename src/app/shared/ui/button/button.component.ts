@@ -1,10 +1,11 @@
 import { NgClass, NgStyle } from '@angular/common';
 import { Component, HostBinding, Input } from '@angular/core';
 import { SvgIconComponent } from '../svg-icon/svg-icon.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-button',
-  imports: [NgClass, SvgIconComponent, NgStyle],
+  imports: [NgClass, SvgIconComponent, NgStyle, RouterModule],
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss',
   standalone: true,
@@ -20,6 +21,7 @@ export class ButtonComponent {
   @Input() height = 56;
   @Input() type: 'button' | 'submit' | 'reset' = 'button';
   @Input() isDisabled = false;
+  @Input() href?: string;
 
   @HostBinding('class') get hostClasses() {
     return this.extraClass || '';

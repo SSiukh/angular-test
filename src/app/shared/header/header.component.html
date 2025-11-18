@@ -7,14 +7,15 @@
         [marginTop]="width <= 520 ? '28px' : '44px'"
       ></app-logo>
       <app-button
-        [text]="'Презентація'"
+        [text]="currentRoute === '/' ? 'Презентація' : 'На головну'"
         [variant]="'outlined'"
-        [icon]="'download'"
+        [icon]="currentRoute === '/' ? 'download' : undefined"
         [iconHeight]="width <= 520 ? 15 : 23"
         [iconWidth]="width <= 520 ? 11 : 16.25"
         [extraClass]="'header__download-button'"
-        [width]="width <= 520 ? 160 : 203.25"
+        [width]="width <= 320 ? 135 : width <= 520 ? 160 : 203.25"
         [height]="width <= 520 ? 32 : 56"
+        [href]="currentRoute === '/' ? undefined : '/'"
       ></app-button>
     </div>
   </div>

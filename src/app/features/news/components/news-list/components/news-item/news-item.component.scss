@@ -1,0 +1,79 @@
+@use 'vars' as *;
+@use 'mixins' as *;
+
+.news {
+  background-color: $color-white;
+  flex: 1;
+
+  &__info {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    min-height: 190px;
+
+    @include respond-to(lg) {
+      padding: 28px;
+      min-height: 250px;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @include respond-to(lg) {
+      gap: 16px;
+    }
+  }
+
+  &__title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    word-break: break-word;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.2;
+
+    @include respond-to(lg) {
+      font-size: 26px;
+    }
+  }
+
+  &__description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    word-break: break-word;
+    line-clamp: 2;
+    line-height: 1.5;
+    font-size: 14px;
+    font-weight: 400;
+
+    @include respond-to(lg) {
+      font-size: 16px;
+    }
+  }
+
+  &__additional-info {
+    display: flex;
+    gap: 10px;
+  }
+
+  &__additional {
+    font-size: 12px;
+    opacity: 0.5;
+
+    @include respond-to(lg) {
+      font-size: 13px;
+    }
+  }
+}

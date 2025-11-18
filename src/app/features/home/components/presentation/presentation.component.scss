@@ -101,9 +101,14 @@
     border: none;
     position: absolute;
     margin: auto;
-    top: calc(50% - 24.6px);
-    left: calc(50% - 30px);
+    top: calc(50% - 19.5px);
+    left: calc(50% - 19px);
     transition: transform 0.3s ease;
+
+    @include respond-to(320px) {
+      top: calc(50% - 24.6px);
+      left: calc(50% - 30px);
+    }
 
     @include respond-to(sm) {
       top: calc(50% - 40px);

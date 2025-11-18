@@ -3,10 +3,11 @@
 @use 'fonts' as *;
 @use 'mixins' as *;
 @use 'ngx-toastr/toastr' as *;
+@import '@ng-select/ng-select/themes/material.theme.css';
 
 .container {
   max-width: 1440px;
-  min-width: 320px;
+  min-width: 280px;
   padding: 0 16px;
   width: 100%;
   margin: 0 auto;
@@ -21,5 +22,13 @@
 
   @include respond-to(xl) {
     padding: 0 160px;
+  }
+}
+
+.toast-custom {
+  max-width: 260px;
+
+  @include respond-to(330px) {
+    max-width: none;
   }
 }

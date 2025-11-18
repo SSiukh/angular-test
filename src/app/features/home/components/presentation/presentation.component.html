@@ -18,8 +18,12 @@
   <button (click)="startVideo()" class="presentation__play-button">
     <app-svg-icon
       icon="play-button"
-      [svgWidth]="width < 520 ? 48 : width < 768 ? 77.1 : width < 1100 ? 92.56 : 116"
-      [svgHeight]="width < 520 ? 49.2 : width < 768 ? 79.73 : width < 1100 ? 96 : 120.58"
+      [svgWidth]="
+        width < 320 ? 38 : width < 520 ? 48 : width < 768 ? 77.1 : width < 1100 ? 92.56 : 116
+      "
+      [svgHeight]="
+        width < 320 ? 39 : width < 520 ? 49.2 : width < 768 ? 79.73 : width < 1100 ? 96 : 120.58
+      "
     ></app-svg-icon>
   </button>
   }

@@ -1,0 +1,13 @@
+@use 'vars' as *;
+
+.news {
+  padding-top: 150px;
+  background-color: #efeff3;
+
+  &__title {
+    font-size: $font-size-xxl;
+    font-weight: 400;
+    margin-bottom: 60px;
+    line-height: 60px;
+  }
+}

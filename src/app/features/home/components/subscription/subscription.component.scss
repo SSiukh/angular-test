@@ -105,20 +105,26 @@
     justify-content: center;
     align-items: center;
     z-index: 1050;
+    padding: 20px;
   }
   &__modal {
-    width: 288px;
+    flex: 1;
     background-color: $color-white;
     padding: 40px 21px 40px 18px;
     position: relative;
 
+    @include respond-to(320px) {
+      max-width: 288px;
+      padding: 40px 21px 40px 18px;
+    }
+
     @include respond-to(sm) {
-      width: 440px;
+      max-width: 440px;
       padding: 46px 23px 46px 23px;
     }
 
     @include respond-to(md) {
-      width: 664px;
+      max-width: 664px;
       padding: 52px 53px 72px 64px;
     }
   }

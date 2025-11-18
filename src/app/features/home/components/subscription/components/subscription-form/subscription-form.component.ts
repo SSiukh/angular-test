@@ -13,7 +13,7 @@ import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalService } from 'app/core/services/modal/modal.service';
 import { ScreenService } from 'app/core/services/screen/screen.service';
 import { uniqueValidator } from 'app/core/validators/is-unique.validator';
-import { HttpService } from 'app/features/services/http/http.service';
+import { HomeApiService } from 'app/features/services/home/api/home-api.service';
 import { SubscribeRequest, SubscribeResponse } from 'app/shared/types';
 import { ButtonComponent } from 'app/shared/ui/button/button.component';
 import { ToastrService } from 'ngx-toastr';
@@ -28,7 +28,7 @@ import { MODAL_TYPE } from 'app/features/home/components/subscription/datasets';
 })
 export class SubscriptionFormComponent implements OnInit, OnDestroy {
   private screenService = inject(ScreenService);
-  private httpService = inject(HttpService);
+  private apiService = inject(HomeApiService);
   private modalService = inject(ModalService);
   private toastr = inject(ToastrService);
 
@@ -49,11 +49,14 @@ export class SubscriptionFormComponent implements OnInit, OnDestroy {
       email: new FormControl('', {
         validators: [Validators.required, Validators.email],
         asyncValidators: [
-          uniqueValidator<SubscribeRequest, SubscribeResponse, string>(this.httpService, {
-            endpoint: 'appeal/check-unique-email',
-            body: (value) => ({ email: value }),
-            isUnique: (res) => res.data.success,
-          }),
+          uniqueValidator<SubscribeRequest, SubscribeResponse, string, HomeApiService>(
+            this.apiService,
+            {
+              endpoint: 'appeal/check-unique-email',
+              body: (value) => ({ email: value }),
+              isUnique: (res) => res.data.success,
+            }
+          ),
         ],
         updateOn: 'submit',
       }),
@@ -89,7 +92,7 @@ export class SubscriptionFormComponent implements OnInit, OnDestroy {
 
     try {
       await firstValueFrom(
-        this.httpService.postRequest<SubscribeRequest, SubscribeResponse>('appeal/create', {
+        this.apiService.post<SubscribeRequest, SubscribeResponse>('appeal/create', {
           email,
         })
       );
@@ -100,7 +103,9 @@ export class SubscriptionFormComponent implements OnInit, OnDestroy {
         size: 'lg',
       });
     } catch {
-      this.toastr.error('Не вдалося виконати запит', 'Помилка');
+      this.toastr.error('Не вдалося виконати запит', 'Помилка', {
+        toastClass: 'ngx-toastr toast-custom',
+      });
     } finally {
       this.isLoading = false;
       this.loadingChange.emit(this.isLoading);
